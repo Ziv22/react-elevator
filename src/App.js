@@ -1,25 +1,31 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import { observer } from "mobx-react-lite";
+import { Elevator } from "./components/Elevator";
+import { CallButton } from "./components/CallButton";
+import { getFloorName } from "./utils/floorNames";
 
-function App() {
+const App = observer((props) => {
+  const { board } = props.board;
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      {board
+        .map((floor, index) => (
+          <div key={index}>
+            <div className="floor-name u-bold">{getFloorName(index)} </div>
+            {floor.map((elevator, i) =>
+              typeof elevator === "number" ? (
+                <Elevator board={props.board} key={i} elevator={elevator} />
+              ) : (
+                <div key={i} className="elevator"></div>
+              )
+            )}
+            <CallButton board={props} floor={props.board.floors[index]} />
+          </div>
+        ))
+        .reverse()}
     </div>
   );
-}
+});
 
 export default App;

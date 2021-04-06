@@ -1,13 +1,92 @@
-body {
+*,
+*::after,
+*::before {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  padding: 0;
+  box-sizing: inherit;
+  text-align: center;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+html {
+  font-size: 62.5%;
+}
+
+body {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Lato", sans-serif;
+  font-weight: 400;
+  font-size: 1.6rem;
+  line-height: 1.7;
+  color: #777;
+  padding: 2.4rem;
+}
+
+#building {
+  margin-left: 40%;
+  margin-top: 10%;
+}
+
+.floor {
+  width: fit-content;
+}
+.elevator {
+  display: inline-block;
+  transition: all 0.5s;
+  justify-content: center;
+  align-content: center;
+  padding: 2rem;
+  width: 10rem;
+  height: 3rem;
+}
+.floor-name {
+  width: 11rem;
+  display: inline-block;
+  text-align: right;
+  color: black;
+}
+
+.call-button {
+  background-color: rgb(91 205 136);
+  color: white;
+  border: 1px solid transparent;
+  outline: none;
+  width: 7rem;
+  height: 2.5rem;
+  border-radius: 3px;
+}
+
+.call-button:hover {
+  background-color: rgb(135 247 179);
+  color: gray;
+  transform: translateY(-0.3rem);
+  box-shadow: 0 1rem 2rem rgba(black, 0.2);
+}
+
+.call-button:active {
+  transform: translateY(-0.1rem);
+  box-shadow: 0 0.5rem 1rem rgba(black, 0.2);
+}
+
+.elevator-moving {
+  fill: rgb(226, 57, 57);
+}
+
+.elevator-suspended {
+  fill: rgb(34, 192, 34);
+}
+
+.u-bold {
+  font-weight: 600;
+}
+.floor-waiting {
+  background-color: red;
+}
+
+.floor-arrived {
+  background-color: white;
+  color: rgb(34, 192, 34);
+  border: 1px solid rgb(34, 192, 34);
 }
