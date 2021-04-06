@@ -18,12 +18,16 @@ export default class Elevator {
     makeObservable(this, {
       movementStatus: observable,
       currentFloor: observable,
-      floorInstance: observable,
       goTo: action,
       suspend: action,
       move: action,
       moveOneFloor: action,
+      changeMovementStatus: action,
     });
+  }
+
+  changeMovementStatus(status) {
+    this.movementStatus = status;
   }
 
   goTo(floor, board) {
@@ -31,7 +35,7 @@ export default class Elevator {
     this.directionIsUp =
       this.targetFloor > this.currentFloor ||
       this.targetFloor === this.currentFloor;
-    this.movementStatus = MovementEnum.moving;
+    this.changeMovementStatus(MovementEnum.moving);
     this.board = board;
     this.floorInstance = floor;
     this.floorInstance.setElevator(this);
@@ -39,17 +43,14 @@ export default class Elevator {
   }
 
   suspend() {
-    this.movementStatus = MovementEnum.suspended;
+    this.changeMovementStatus(MovementEnum.suspended);
     setTimeout(() => {
-      this.movementStatus = MovementEnum.idle;
+      this.changeMovementStatus(MovementEnum.idle);
       if (this.board.queue.length) {
+        this.floorInstance.clearElevator();
         this.board.orderElevator();
       }
     }, Constants.suspension);
-  }
-
-  changeToIdle() {
-    this.movementStatus = MovementEnum.idle;
   }
 
   moveOneFloor(moveUp) {

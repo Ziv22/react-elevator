@@ -8,10 +8,15 @@ export default class Floor {
     makeObservable(this, {
       assignedElevator: observable,
       setElevator: action,
+      clearElevator: action,
     });
   }
 
   setElevator(elevator) {
     this.assignedElevator = elevator;
+  }
+
+  clearElevator() {
+    this.assignedElevator = null;
   }
 }

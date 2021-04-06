@@ -3,22 +3,29 @@ import { MovementEnum } from "../utils/MovementEnum";
 
 export const CallButton = observer((props) => {
     const {board, floor} = props;
-    if(floor?.assignedElevator?.movementStatus){
-      console.log(floor?.assignedElevator?.movementStatus);
+
+    const isMoving = () =>{
+      return floor?.assignedElevator?.movementStatus === MovementEnum.moving
     }
 
-    const getClass = () => {
-      if(floor?.assignedElevator?.movementStatus === MovementEnum.moving){
+    const isSuspended = () =>{
+      return floor?.assignedElevator?.movementStatus === MovementEnum.suspended
+    }
+
+    const getClass = () => { 
+      if(isMoving()){
           return "floor-waiting"
-      } else if(floor?.assignedElevator?.movementStatus === MovementEnum.suspended) {
+      } else if(isSuspended()) {
           return "floor-arrived"
+      } else {
+        return ""
       }
   }
 
     const getText = () => {
-      if(floor?.assignedElevator?.movementStatus === MovementEnum.moving){
+      if(isMoving()){
           return "Waiting"
-      } else if(floor?.assignedElevator?.movementStatus === MovementEnum.suspended) {
+      } else if(isSuspended()) {
           return "Arrived"
       } else {
         return "Call"
