@@ -37,9 +37,11 @@ export default class Elevator {
       this.targetFloor === this.currentFloor;
     this.changeMovementStatus(MovementEnum.moving);
     this.board = board;
-    this.floorInstance = floor; 
+    this.floorInstance = floor;
     this.floorInstance.setElevator(this);
-    this.move();
+    setTimeout(() => {
+      this.move();
+    }, 1000);
   }
 
   suspend() {
@@ -56,26 +58,14 @@ export default class Elevator {
   moveOneFloor(moveUp) {
     if (this.targetFloor !== this.currentFloor) {
       this.previousFloor = this.currentFloor;
-      if (moveUp) {
-        this.currentFloor++;
-      } else {
-        this.currentFloor--;
-      }
-      this.board.placeElevators();
+      this.currentFloor = this.targetFloor;
+      this.board.placeElevator   (this.previousFloor, this.currentFloor, this.id);
     }
   }
 
   move() {
-    console.log(
-      `Elevator ${this.id} start moving... status ${this.movementStatus}`
-    );
-    this.intervalId = setInterval(() => {
-      this.moveOneFloor(this.directionIsUp);
-      if (this.targetFloor === this.currentFloor) {
-        clearInterval(this.intervalId);
-        this.suspend();
-      }
-    }, Constants.moveSpeed);
+    this.moveOneFloor(this.directionIsUp);
+    this.suspend();
   }
 
   playSound() {
