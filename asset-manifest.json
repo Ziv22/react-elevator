@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/react-elevator/static/css/main.8b2aca5d.chunk.css",
+    "main.js": "/react-elevator/static/js/main.428aaa05.chunk.js",
+    "main.js.map": "/react-elevator/static/js/main.428aaa05.chunk.js.map",
+    "runtime-main.js": "/react-elevator/static/js/runtime-main.6d7f5aeb.js",
+    "runtime-main.js.map": "/react-elevator/static/js/runtime-main.6d7f5aeb.js.map",
+    "static/js/2.60e58f79.chunk.js": "/react-elevator/static/js/2.60e58f79.chunk.js",
+    "static/js/2.60e58f79.chunk.js.map": "/react-elevator/static/js/2.60e58f79.chunk.js.map",
+    "static/js/3.f26ed2ae.chunk.js": "/react-elevator/static/js/3.f26ed2ae.chunk.js",
+    "static/js/3.f26ed2ae.chunk.js.map": "/react-elevator/static/js/3.f26ed2ae.chunk.js.map",
+    "index.html": "/react-elevator/index.html",
+    "static/css/main.8b2aca5d.chunk.css.map": "/react-elevator/static/css/main.8b2aca5d.chunk.css.map",
+    "static/js/2.60e58f79.chunk.js.LICENSE.txt": "/react-elevator/static/js/2.60e58f79.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.6d7f5aeb.js",
+    "static/js/2.60e58f79.chunk.js",
+    "static/css/main.8b2aca5d.chunk.css",
+    "static/js/main.428aaa05.chunk.js"
+  ]
+}
