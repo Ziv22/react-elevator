@@ -1,5 +1,5 @@
-import { MovementEnum } from "./utils/MovementEnum";
-import { Constants } from "./utils/constants";
+import { MovementEnum } from "../utils/MovementEnum";
+import { Constants } from "../utils/constants";
 import { action, makeObservable, observable } from "mobx";
 // import { elevatorBellDing } from "./assets/elevator-bell-ding";
 
@@ -37,7 +37,7 @@ export default class Elevator {
       this.targetFloor === this.currentFloor;
     this.changeMovementStatus(MovementEnum.moving);
     this.board = board;
-    this.floorInstance = floor; 
+    this.floorInstance = floor;
     this.floorInstance.setElevator(this);
     this.move();
   }

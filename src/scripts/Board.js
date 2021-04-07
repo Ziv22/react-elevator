@@ -1,7 +1,7 @@
 import Elevator from "./Elevator";
 import Floor from "./Floor";
 import { makeObservable, observable, action } from "mobx";
-import { MovementEnum } from "./utils/MovementEnum";
+import { MovementEnum } from "../utils/MovementEnum";
 
 export default class Board {
   constructor(floorsNum, elevatorsNum) {
