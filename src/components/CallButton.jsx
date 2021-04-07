@@ -1,8 +1,11 @@
 import { observer } from "mobx-react-lite";
+import { useState } from "react";
 import { MovementEnum } from "../utils/MovementEnum";
 
 export const CallButton = observer((props) => {
     const {board, floor} = props;
+
+    const [clicked, setClicked] = useState(false);
 
     const isMoving = () =>{
       return floor?.assignedElevator?.movementStatus === MovementEnum.moving
@@ -10,6 +13,10 @@ export const CallButton = observer((props) => {
 
     const isSuspended = () =>{
       return floor?.assignedElevator?.movementStatus === MovementEnum.suspended
+    }
+
+    const sendElevator = () =>{
+      board.sendElevator(floor.id)
     }
 
     const getClass = () => { 
@@ -20,7 +27,7 @@ export const CallButton = observer((props) => {
       } else {
         return ""
       }
-  }
+    }
 
     const getText = () => {
       if(isMoving()){
@@ -30,14 +37,12 @@ export const CallButton = observer((props) => {
       } else {
         return "Call"
       }
-  }
+    }
 
     return (
         <button
         className={`call-button ${getClass()}`}
-        onClick={() => {
-          board.board.sendElevator(floor.id);
-        }}
+        onClick={sendElevator}
       >
         {getText()}
       </button>

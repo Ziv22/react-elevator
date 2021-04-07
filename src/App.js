@@ -11,7 +11,7 @@ const App = observer((props) => {
     <div className="App">
       {board
         .map((floor, index) => (
-          <div key={index} className="line">
+          <div key={index}>
             <div className="floor-name u-bold">{getFloorName(index)} </div>
             <div className="board-wrapper">
               {floor.map((elevator, i) =>
@@ -22,7 +22,7 @@ const App = observer((props) => {
                 )
               )}
             </div>
-            <CallButton board={props} floor={props.board.floors[index]} />
+            <CallButton board={props.board} floor={props.board.floors[index]} />
           </div>
         ))
         .reverse()}

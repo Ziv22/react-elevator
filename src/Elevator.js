@@ -37,7 +37,7 @@ export default class Elevator {
       this.targetFloor === this.currentFloor;
     this.changeMovementStatus(MovementEnum.moving);
     this.board = board;
-    this.floorInstance = floor;
+    this.floorInstance = floor; 
     this.floorInstance.setElevator(this);
     this.move();
   }
@@ -46,8 +46,8 @@ export default class Elevator {
     this.changeMovementStatus(MovementEnum.suspended);
     setTimeout(() => {
       this.changeMovementStatus(MovementEnum.idle);
+      this.floorInstance.clearElevator();
       if (this.board.queue.length) {
-        this.floorInstance.clearElevator();
         this.board.orderElevator();
       }
     }, Constants.suspension);
