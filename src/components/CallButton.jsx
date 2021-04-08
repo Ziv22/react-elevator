@@ -1,12 +1,8 @@
 import { observer } from "mobx-react-lite";
-import { useState } from "react";
 import { MovementEnum } from "../utils/MovementEnum";
 
 export const CallButton = observer((props) => {
     const {board, floor} = props;
-
-    const [clicked, setClicked] = useState(false);
-
     const isMoving = () =>{
       return floor?.assignedElevator?.movementStatus === MovementEnum.moving
     }

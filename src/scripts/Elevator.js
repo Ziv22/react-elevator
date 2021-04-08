@@ -61,7 +61,7 @@ export default class Elevator {
       } else {
         this.currentFloor--;
       }
-      this.board.placeElevators();
+      this.board.placeElevator(this.currentFloor, this.previousFloor, this.id);
     }
   }
 
@@ -76,10 +76,5 @@ export default class Elevator {
         this.suspend();
       }
     }, Constants.moveSpeed);
-  }
-
-  playSound() {
-    const audio = new Audio("./assets/elevator-bell-ding");
-    audio.play();
   }
 }

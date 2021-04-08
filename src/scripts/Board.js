@@ -11,11 +11,11 @@ export default class Board {
     this.board = this._generateBoard();
     this.elevators = this._generateElevators();
     this.floors = this._generateFloors();
-    this.placeElevators();
+    this.placeElevatorsOnStart();
     makeObservable(this, {
       board: observable,
       elevators: observable,
-      placeElevators: action,
+      placeElevator: action,
       orderElevator: action,
     });
   }
@@ -52,11 +52,15 @@ export default class Board {
     return floors;
   }
 
-  placeElevators() {
+  placeElevatorsOnStart() {
     this.elevators.forEach((e) => {
-      this.board[e.previousFloor][e.id] = "-";
-      this.board[e.currentFloor][e.id] = e.id;
+      this.placeElevator(e.previousFloor, e.currentFloor, e.id);
     });
+  }
+
+  placeElevator(currentFloor, previousFloor, id) {
+    this.board[previousFloor][id] = "-";
+    this.board[currentFloor][id] = id;
   }
 
   addToQueue(floorsNum) {
