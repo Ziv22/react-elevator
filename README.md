@@ -2,7 +2,7 @@
 
 ## Description
 
-An app that manages and prioorties Elevator calls built in React.js Mobx and JS.
+An app that mimics an elevator system in a building. It manages and prioritizes Elevator calls built-in React.js Mobx and JS.
 
 ## The Model
 
