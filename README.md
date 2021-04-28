@@ -2,8 +2,7 @@
 
 ## Description
 
-I created this app using React.js Mobx and JS.
-All the logic and state is in the model.
+An app that manages and prioorties Elevator calls built in React.js Mobx and JS.
 
 ## The Model
 
